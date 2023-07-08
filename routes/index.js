@@ -19,7 +19,8 @@ router.get('/', async (req, res) => {
         res
             .status(500)
             .send({
-                message: "Internal Server Error"
+                message: "Internal Server Error",
+                error: error?.message
             })
     }
 })
@@ -60,14 +61,16 @@ router.get('/:id', async (req, res) => {
             res
                 .status(400)
                 .send({
-                    message: 'Invaild Id'
+                    message: 'Invaild Id',
+                    error: error?.message
                 })
         }
     } catch (error) {
         res
             .status(500)
             .send({
-                message: "Internal Server Error"
+                message: "Internal Server Error",
+                error: error?.message
             })
     }
 })
