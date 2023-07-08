@@ -1,5 +1,5 @@
 const mongodb = require('mongodb')
-const dbName = 'b46wd2'
-const dbUrl = `mongodb+srv://krishna:krish@cluster0.hkshlrk.mongodb.net/${dbName}`
+const dbName = process.env.DB_NAME
+const dbUrl = `${process.env.DB_URL}/${dbName}`
 
 module.exports = {mongodb,dbName,dbUrl}
