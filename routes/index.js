@@ -9,19 +9,9 @@ mongoose.connect(dbUrl)
 router.get('/', async (req, res) => {
     try {
         let users = await UserModel.find()
-        res
-            .status(200)
-            .send({
-                message: "Data Fatch Sucsessfully",
-                users
-            })
+        res.status(200).send({message: "Data Fatch Sucsessfully",users})
     } catch (error) {
-        res
-            .status(500)
-            .send({
-                message: "Internal Server Error",
-                error: error?.message
-            })
+        res.status(500).send({message: "Internal Server Error",error: error?.message})
     }
 })
 
@@ -37,12 +27,7 @@ router.post('/', async (req, res) => {
         }
 
     } catch (error) {
-        res
-            .status(500)
-            .send({
-                message: "Internal Server Error",
-                error: error?.message
-            })
+        res.status(500).send({message: "Internal Server Error",error: error?.message})
     }
 })
 
@@ -50,28 +35,13 @@ router.get('/:id', async (req, res) => {
     try {
         let data = await UserModel.findById(req.params.id)
         if (data) {
-            res
-                .status(200)
-                .send({
-                    message: "Data Saved Sucsessfully",
-                    data
-                })
+            res.status(200).send({message: "Data Saved Sucsessfully",data})
         }
         else {
-            res
-                .status(400)
-                .send({
-                    message: 'Invaild Id',
-                    error: error?.message
-                })
+            res.status(400).send({message: 'Invaild Id',error: error?.message})
         }
     } catch (error) {
-        res
-            .status(500)
-            .send({
-                message: "Internal Server Error",
-                error: error?.message
-            })
+        res.status(500).send({message: "Internal Server Error",error: error?.message})
     }
 })
 
@@ -84,18 +54,9 @@ router.put('/:id', async (req, res) => {
             user.password = req.body.password
             await user.save()
         }
-        res
-            .status(200)
-            .send({
-                message: "Data Updated Sucsessfully"
-            })
+        res.status(200).send({message: "Data Updated Sucsessfully"})
     } catch (error) {
-        res
-            .status(500)
-            .send({
-                message: "Internal Server Error",
-                error: error?.message
-            })
+        res.status(500).send({message: "Internal Server Error",error: error?.message})
     }
 })
 
@@ -103,21 +64,13 @@ router.delete('/:id', async (req, res) => {
     try {
         let user = await UserModel.findByIdAndDelete(req.params.id)
         if (user) {
-            res
-                .status(200)
-                .send({
-                    message: "Data Deleted Sucsessfully"
-                })
+            res.status(200).send({message: "Data Deleted Sucsessfully"})
         }
         else {
             res.status(400).send({ message: 'Invaild User Id' })
         }
     } catch (error) {
-        res
-            .status(500)
-            .send({
-                message: "Internal Server Error"
-            })
+        res.status(500).send({message: "Internal Server Error"})
     }
 })
 
