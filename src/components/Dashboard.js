@@ -38,8 +38,12 @@ function Dashboard() {
     }
   }, [])
   return <div className='container'>
-    <Button onClick={handleGetData}>Refresh</Button>
-    <Button onClick={logout}>Logout</Button>
+    <div className='icon-but'>
+    <div className='icon-refresh'>
+    <Button onClick={handleGetData}><i className="fa-solid fa-rotate-right"></i></Button>
+    <Button onClick={logout}><i className="fa-solid fa-right-from-bracket"></i>Logout</Button>
+    </div>
+    </div>
     <Table striped bordered hover>
       <thead>
         <tr>
@@ -59,9 +63,8 @@ function Dashboard() {
               <td>{e.name}</td>
               <td>{e.email}</td>
               <td>{e.mobile}</td>
-              <td>{e.status}</td>
+              <td>{e.status.toString()}</td>
               <td>{e.createdAt}</td>
-
             </tr>
           })
         }

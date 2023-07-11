@@ -6,3 +6,16 @@
     text-align: center;
     margin-top: 25px;
 }
+.button-sty{
+    display: grid;
+    width: 60%;
+    padding-left: 40%;
+}
+
+.icon-but{
+    margin: 20px;
+}
+.icon-refresh{
+    display: flex;
+    justify-content: space-between;
+}
