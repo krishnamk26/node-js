@@ -1,8 +1,19 @@
 import React from "react";
-
+import Dashboard from "./components/Dashboard";
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
+import { BrowserRouter,Route,Routes,Navigate } from "react-router-dom";
 function App() {
+  // console.log(process.env.REACT_APP_API_URL)
   return <>
-    <h1>React Work</h1>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/sign-in" element={<SignIn/>}/>
+      <Route path="/sign-up" element={<SignUp/>}/>
+      <Route path="/dashboard" element={<Dashboard/>}/>
+      <Route path="/*" element={<Navigate to = '/sign-in'/>}/>
+    </Routes>
+    </BrowserRouter>
   </>
 }
 
